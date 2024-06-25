@@ -1,5 +1,7 @@
 package com.jdy.mybatis.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -86,8 +88,20 @@ public class MemberController {
 		} else {
 			model.addAttribute("searchFail","회원검색에 실패하였습니다.");
 		}
-		
 		return "searchOk";
+	}
+	
+	@RequestMapping(value = "/memberlist")
+	public String memberlist(HttpServletRequest request, Model model) {
+		
+		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+		ArrayList<MemberDto> memberDtos = memberDao.memberlistDao();
+		int totalMember = memberDao.totalmemberDao();
+		
+		model.addAttribute("memberlist", memberDtos);
+		model.addAttribute("total", totalMember);
+		
+		return "memberlist";
 	}
 	
 }

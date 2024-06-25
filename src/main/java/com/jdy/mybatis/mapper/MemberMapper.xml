@@ -18,8 +18,12 @@
 		SELECT * FROM members WHERE mid=#{param1}
 	</select>
 	
-	<select id="listDao" resultType="com.jdy.mybatis.dto.MemberDto">
+	<select id="memberlistDao" resultType="com.jdy.mybatis.dto.MemberDto">
 		SELECT * FROM members
+	</select>
+	
+	<select id="totalmemberDao" resultType="int">
+		SELECT count(*) FROM members
 	</select>
 
 </mapper>

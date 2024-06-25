@@ -10,6 +10,8 @@
 	<h3>회원정보조회</h3>
 	<hr>
 	<form action="searchOk">
-		아이디 : <input type="text">
+		아이디 : <input type="text" name="mid">
+		<input type="submit" value="회원조회">
+	</form>
 </body>
 </html>
