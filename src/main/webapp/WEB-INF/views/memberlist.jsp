@@ -27,11 +27,9 @@
 			<th>${member.memail}</th>
 			<th>${member.mdate}</th>
 		</tr>
-		</c:forEach>
-		<br>
-		<hr>
-		<hr>
-		총회원수 : ${total}명
+		</c:forEach>		
 	</table>
+	<hr>
+	총회원수 : ${total}명
 </body>
 </html>
