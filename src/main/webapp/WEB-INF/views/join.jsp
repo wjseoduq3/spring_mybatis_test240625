@@ -20,7 +20,7 @@
 		<tr>
 			<td>비밀번호</td>
 			<td>
-				<input type="pasword" name="mpw" size="70">
+				<input type="password" name="mpw" size="70">
 			</td>	
 		</tr>
 		<tr>
