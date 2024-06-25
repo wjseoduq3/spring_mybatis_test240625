@@ -20,7 +20,7 @@
 		<tr>
 			<td>비밀번호</td>
 			<td>
-				<input type="password" name="mpw" size="70">
+				<input type="text" name="mpw" size="70">
 			</td>	
 		</tr>
 		<tr>
@@ -33,12 +33,6 @@
 			<td>이메일</td>
 			<td>
 				<input type="text" name="memail" size="70">
-			</td>	
-		</tr>
-		<tr>
-			<td>등록일</td>
-			<td>
-				<input type="text" name="mdate" size="70">
 			</td>	
 		</tr>
 		<tr>
