@@ -18,7 +18,7 @@
 		SELECT * FROM springboard WHERE bnum=#{param1}
 	</select>
 	
-	<update id="modifyDao" resultType="com.jdy.mybatis.dto.BoardDto">
+	<update id="modifyDao">
 		UPDATE springboard SET btitle=#{param1} bcontent=#{param2} WHERE bnum=#{param3}
 	</update>
 	
