@@ -91,17 +91,27 @@ public class MemberController {
 		return "searchOk";
 	}
 	
-	@RequestMapping(value = "/memberlist")
-	public String memberlist(HttpServletRequest request, Model model) {
+	@RequestMapping(value = "/deletet")
+	public String delete() {
 		
-		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
-		ArrayList<MemberDto> memberDtos = memberDao.memberlistDao();
-		int totalMember = memberDao.totalmemberDao();
-		
-		model.addAttribute("memberlist", memberDtos);
-		model.addAttribute("total", totalMember);
-		
-		return "memberlist";
+		return "delete";
 	}
 	
+	
+	@RequestMapping(value = "/deleteOk")
+	public String deleteOk(HttpServletRequest request, Model model) {
+		
+		String mid = request.getParameter("mid");
+		
+		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+		int success = memberDao.deleteMemberDao(mid);
+		
+		if(success == 1) {
+			return "redirect:memberlist";
+		} else {
+			model.addAttribute("deleteFail","존재하지 않는 회원입니다.");
+			return "searchOk";
+		}
+		
+	}
 }
