@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<!-- dataSource 설치해야됨 & dependency를 Maven Denpendency folder에 설치해야됨(springframework-jdbc-4.1.4RELEASE at porm.xml) -->	
+	<!-- dataSource 설치해야됨 & dependency를 Maven Denpendency folder에 설치됨(springframework-jdbc-4.1.4RELEASE at porm.xml) -->	
 	<beans:bean name ="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"></beans:property>
 		<!--
