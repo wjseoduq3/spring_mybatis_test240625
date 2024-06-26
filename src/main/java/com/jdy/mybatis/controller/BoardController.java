@@ -62,11 +62,25 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/contentView")
-	public String contentView(HttpServletRequest request, Model model) {
+	public String contentView(HttpServletRequest request, Model model, HttpSession session) {
 		
 		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
 		BoardDto boardDto = boardDao.contentViewDao(request.getParameter("bnum"));
 		
+		String sessionid = (String) session.getAttribute("sessionid");
+		
+		// System.out.println("세션아이디:" + sessionid);
+		
+		int idCheck = 0;
+		
+		if((sessionid !=null) && (boardDto.getBid().equals(sessionid))) {
+			idCheck = 1;			
+		} else {
+			
+		}
+		
+		
+		model.addAttribute("idCheck", idCheck);
 		model.addAttribute("boardDto", boardDto);
 		
 		return "content_view";
@@ -80,7 +94,7 @@ public class BoardController {
 		
 		model.addAttribute("boardDto", boardDto);
 		
-		return "modify-form";
+		return "modify_form";
 	}
 	
 	@RequestMapping(value = "/modifyOk")
@@ -88,8 +102,6 @@ public class BoardController {
 		
 		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
 		boardDao.modifyDao(request.getParameter("btitle"), request.getParameter("bcontent"), request.getParameter("bnum"));
-		
-		// model.addAttribute("boardDto", boardDao);
 		
 		return "redirect:list";
 	}

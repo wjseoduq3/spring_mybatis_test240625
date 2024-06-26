@@ -12,7 +12,8 @@ public interface MemberDao {
 	public ArrayList<MemberDto> memberlistDao();
 	public int totalmemberDao();
 	public int deleteMemberDao(String mid);
-	
+	public int checkIdDao(String mid);
+		
 	
 	
 	

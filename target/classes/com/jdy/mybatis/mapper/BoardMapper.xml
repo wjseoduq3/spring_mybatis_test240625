@@ -19,7 +19,7 @@
 	</select>
 	
 	<update id="modifyDao">
-		UPDATE springboard SET btitle=#{param1} bcontent=#{param2} WHERE bnum=#{param3}
+		UPDATE springboard SET btitle=#{param1}, bcontent=#{param2} WHERE bnum=#{param3}
 	</update>
 	
 

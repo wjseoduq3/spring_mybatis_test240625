@@ -13,7 +13,7 @@
 	<input type="hidden" name="bnum" value="${boardDto.bnum}">
 	<table border="1" cellspacing="0" cellpadding="0" width="600">
 		<tr>
-			<td width="100">글번호</td>
+			<td>글번호</td>
 			<td>${boardDto.bnum}</td>
 		</tr>
 		<tr>
