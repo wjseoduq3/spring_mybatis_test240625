@@ -24,12 +24,12 @@
 	<!-- dataSource 설치해야됨 & dependency를 Maven Denpendency folder에 설치해야됨(springframework-jdbc-4.1.4RELEASE at porm.xml) -->	
 	<beans:bean name ="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"></beans:property>
-		
-		<beans:property name="url" value="jdbc:mysql://192.168.0.100:3306/jdy_spring_project_db"></beans:property>
-		<beans:property name="username" value="guest01"></beans:property> 
 		<!--
+		<beans:property name="url" value="jdbc:mysql://192.168.0.100:3306/jdy_spring_project_db"></beans:property>
+		<beans:property name="username" value="guest01"></beans:property> -->
+		
 		<beans:property name="url" value="jdbc:mysql://localhost:3306/jdy_spring_projectdb"></beans:property>
-		<beans:property name="username" value="root"></beans:property> -->
+		<beans:property name="username" value="root"></beans:property> 
 		<beans:property name="password" value="12345"></beans:property>	
 	</beans:bean>
 	
