@@ -107,6 +107,14 @@ public class BoardController {
 		return "redirect:list";
 	}
 	
+	@RequestMapping(value = "/delete")
+	public String delete(HttpServletRequest request, Model model, HttpSession session) {
+		
+		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
+		boardDao.deleteDao(request.getParameter("bnum"));
+			
+		return "redirect:list";
+	}
 	
 	
 }
