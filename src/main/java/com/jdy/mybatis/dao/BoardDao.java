@@ -10,5 +10,6 @@ public interface BoardDao {
 	public ArrayList<BoardDto> boardListDao();
 	public BoardDto contentViewDao(String bnum);
 	public void modifyDao(String btitle, String bcontent, String bnum);
-
+	public void uphitDao(String bnum);
+	
 }

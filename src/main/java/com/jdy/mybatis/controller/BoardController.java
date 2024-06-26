@@ -65,6 +65,8 @@ public class BoardController {
 	public String contentView(HttpServletRequest request, Model model, HttpSession session) {
 		
 		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
+		boardDao.uphitDao(request.getParameter("bnum"));
+			
 		BoardDto boardDto = boardDao.contentViewDao(request.getParameter("bnum"));
 		
 		String sessionid = (String) session.getAttribute("sessionid");
@@ -78,8 +80,7 @@ public class BoardController {
 		} else {
 			
 		}
-		
-		
+				
 		model.addAttribute("idCheck", idCheck);
 		model.addAttribute("boardDto", boardDto);
 		
@@ -98,11 +99,11 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/modifyOk")
-	public String modifyOk(HttpServletRequest request, Model model) {
+	public String modifyOk(HttpServletRequest request, Model model, HttpSession session) {
 		
 		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
 		boardDao.modifyDao(request.getParameter("btitle"), request.getParameter("bcontent"), request.getParameter("bnum"));
-		
+			
 		return "redirect:list";
 	}
 	
