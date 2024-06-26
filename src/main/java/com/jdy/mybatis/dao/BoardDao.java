@@ -11,6 +11,6 @@ public interface BoardDao {
 	public BoardDto contentViewDao(String bnum);
 	public void modifyDao(String btitle, String bcontent, String bnum);
 	public void uphitDao(String bnum);
-	public void deleteDao(String bnum);
+	public void deleteBoardDao(String bnum);
 	
 }
