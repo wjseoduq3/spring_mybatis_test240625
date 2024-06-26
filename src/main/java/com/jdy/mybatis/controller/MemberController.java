@@ -91,6 +91,19 @@ public class MemberController {
 		return "searchOk";
 	}
 	
+	@RequestMapping(value = "/memberlist")
+	public String memberlist(Model model) {
+		
+		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+		ArrayList<MemberDto> memberDtos = memberDao.memberlistDao();
+		int totalMember = memberDao.totalmemberDao();//총 회원수 반환
+		
+		model.addAttribute("memberList", memberDtos);
+		model.addAttribute("total", totalMember);
+		
+		return "memberlist";
+	}
+	
 	@RequestMapping(value = "/deletet")
 	public String delete() {
 		return "delete";
@@ -112,7 +125,7 @@ public class MemberController {
 			return "delete";
 		}	
 	}
-	// 미완성
+	
 	@RequestMapping(value = "/logout")
 	public String logout(HttpSession session) {
 		

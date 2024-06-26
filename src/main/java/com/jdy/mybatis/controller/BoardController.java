@@ -65,9 +65,9 @@ public class BoardController {
 	public String contentView(HttpServletRequest request, Model model) {
 		
 		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
-		boardDao.contentViewDao(request.getParameter("bnum"));
+		BoardDto boardDto = boardDao.contentViewDao(request.getParameter("bnum"));
 		
-		model.addAttribute("boardDto", boardDao);
+		model.addAttribute("boardDto", boardDto);
 		
 		return "content_view";
 	}
@@ -76,9 +76,9 @@ public class BoardController {
 	public String modify(HttpServletRequest request, Model model) {
 		
 		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
-		boardDao.contentViewDao(request.getParameter("bnum"));
+		BoardDto boardDto = boardDao.contentViewDao(request.getParameter("bnum"));
 		
-		model.addAttribute("boardDto", boardDao);
+		model.addAttribute("boardDto", boardDto);
 		
 		return "modify-form";
 	}

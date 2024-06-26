@@ -30,7 +30,6 @@
 			<td>${bDto.bhit}</td>
 		</tr>
 		</c:forEach>
-		<hr>
 		<tr>
 			<td colspan="5">
 				<input type="button" value="글쓰기" onclick="javascript:window.location.href='write'">
