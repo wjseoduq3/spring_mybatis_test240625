@@ -93,7 +93,6 @@ public class MemberController {
 	
 	@RequestMapping(value = "/deletet")
 	public String delete() {
-		
 		return "delete";
 	}
 	
@@ -110,7 +109,7 @@ public class MemberController {
 			return "redirect:memberlist";
 		} else {
 			model.addAttribute("deleteFail","존재하지 않는 회원입니다.");
-			return "searchOk";
+			return "delete";
 		}
 		
 	}
