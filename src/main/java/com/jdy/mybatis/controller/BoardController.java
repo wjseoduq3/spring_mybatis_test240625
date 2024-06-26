@@ -1,5 +1,7 @@
 package com.jdy.mybatis.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jdy.mybatis.dao.BoardDao;
 import com.jdy.mybatis.dao.MemberDao;
+import com.jdy.mybatis.dto.BoardDto;
 import com.jdy.mybatis.dto.MemberDto;
 
 @Controller
@@ -47,6 +50,49 @@ public class BoardController {
 		return "redirect:list";
 	}
 	
+	@RequestMapping(value = "/list")
+	public String list(HttpServletRequest request, Model model) {
+		
+		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
+		ArrayList<BoardDto> boardDtos = boardDao.boardListDao();
+		
+		model.addAttribute("boardList", boardDtos);
+		
+		return "boardlist";
+	}
+	
+	@RequestMapping(value = "/contentView")
+	public String contentView(HttpServletRequest request, Model model) {
+		
+		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
+		boardDao.contentViewDao(request.getParameter("bnum"));
+		
+		model.addAttribute("boardDto", boardDao);
+		
+		return "content_view";
+	}
+	
+	@RequestMapping(value = "/modify")
+	public String modify(HttpServletRequest request, Model model) {
+		
+		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
+		boardDao.contentViewDao(request.getParameter("bnum"));
+		
+		model.addAttribute("boardDto", boardDao);
+		
+		return "modify-form";
+	}
+	
+	@RequestMapping(value = "/modifyOk")
+	public String modifyOk(HttpServletRequest request, Model model) {
+		
+		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
+		boardDao.modifyDao(request.getParameter("btitle"), request.getParameter("bcontent"), request.getParameter("bnum"));
+		
+		// model.addAttribute("boardDto", boardDao);
+		
+		return "redirect:list";
+	}
 	
 	
 	

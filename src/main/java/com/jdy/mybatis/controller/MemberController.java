@@ -110,7 +110,17 @@ public class MemberController {
 		} else {
 			model.addAttribute("deleteFail","존재하지 않는 회원입니다.");
 			return "delete";
-		}
-		
+		}	
 	}
+	// 미완성
+	@RequestMapping(value = "/logout")
+	public String logout(HttpSession session) {
+		
+		session.invalidate();
+		
+		return "redirect:login";
+	}
+	
+	
+	
 }

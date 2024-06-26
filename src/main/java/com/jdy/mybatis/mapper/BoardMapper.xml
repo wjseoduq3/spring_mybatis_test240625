@@ -10,6 +10,17 @@
 		INSERT INTO springboard(bid, bname, btitle, bcontent, bhit) VALUES (#{param1},#{param2},#{param3},#{param4}, 0)
 	</insert>
 	
+	<select id="boardListDao" resultType="com.jdy.mybatis.dto.BoardDto">
+		SELECT * FROM springboard ORDER BY bnum DESC
+	</select>
+	
+	<select id="contentViewDao" resultType="com.jdy.mybatis.dto.BoardDto">
+		SELECT * FROM springboard WHERE bnum=#{param1}
+	</select>
+	
+	<update id="modifyDao" resultType="com.jdy.mybatis.dto.BoardDto">
+		UPDATE springboard SET btitle=#{param1} bcontent=#{param2} WHERE bnum=#{param3}
+	</update>
 	
 
 </mapper>    
